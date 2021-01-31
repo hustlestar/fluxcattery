@@ -1,0 +1,39 @@
+ErrorDocument 403 /404.html
+ErrorDocument 404 /404.html
+
+DirectoryIndex page12880496.html
+
+RewriteEngine On
+
+RewriteRule ^indexhtml$ page12880496.html [NC]
+RewriteRule ^indexhtml/$ page12880496.html [NC]
+
+RewriteRule ^galeryhtml$ page13533508.html [NC]
+RewriteRule ^galeryhtml/$ page13533508.html [NC]
+
+RewriteRule ^producers$ page13534668.html [NC]
+RewriteRule ^producers/$ page13534668.html [NC]
+
+RewriteRule ^faq$ page13534977.html [NC]
+RewriteRule ^faq/$ page13534977.html [NC]
+
+RewriteRule ^articleshtml$ page13535053.html [NC]
+RewriteRule ^articleshtml/$ page13535053.html [NC]
+
+RewriteRule ^article1html$ page13535107.html [NC]
+RewriteRule ^article1html/$ page13535107.html [NC]
+
+RewriteRule ^kittenshtml$ page13544554.html [NC]
+RewriteRule ^kittenshtml/$ page13544554.html [NC]
+
+RewriteRule ^article2html$ page16870482.html [NC]
+RewriteRule ^article2html/$ page16870482.html [NC]
+
+RewriteRule ^article3html$ page16870841.html [NC]
+RewriteRule ^article3html/$ page16870841.html [NC]
+
+RewriteRule ^article4html$ page16958993.html [NC]
+RewriteRule ^article4html/$ page16958993.html [NC]
+
+RewriteRule ^favicon.ico$ https://static.tildacdn.com/img/tildafavicon.ico [R=302,L]
+
