@@ -2838,7 +2838,7 @@ img:not([src]){
 .t456 a ,
 #allrecords .t456 a {
  text-decoration:none;
- color: #000000;
+ color: #ffffff;
 }
 
 .t456.t456__positionabsolute{
@@ -4129,4 +4129,7 @@ img:not([src]){
   .t847__box .t-btn {
     margin-top: 15px;
   }
+}
+a.notranslate {
+	color: #cc2d5f;
 }
