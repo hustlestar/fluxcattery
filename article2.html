@@ -106,7 +106,7 @@
                                     <li class="t456__list_item"><a class="t-menu__link-item" href="#about" data-menu-submenu-hook=""  style="color:#ffffff;font-size:18px;font-weight:600;" data-menu-item-number="5">О нас</a>
                             </li>
                                     <li class="t456__list_item"><a class="t-menu__link-item" href="#contacts" data-menu-submenu-hook=""  style="color:#ffffff;font-size:18px;font-weight:600;" data-menu-item-number="6">Контакты</a>
-                            </li><li class="t456__list_item"><div class="switcher">
+                            </li><li class="t456__list_item"><div class="switcher notranslate">
                             <div class="selected"><a
                                 class="t-menu__link-item t-menusub__target-link" name="#"
                                 data-menu-submenu-hook="link_sub7_276671857"
@@ -114,11 +114,11 @@
                                 data-menu-item-number="7" data-tooltip-menu-id="276671857"><img height="16" width="16"
                                                                                                 alt="ru"
                                                                                                 src="images/ru.png">
-                            Русский</a></div></div>
-                            <div class="t-menusub" data-submenu-hook="link_sub7_276671857" data-submenu-margin="15px"
+                            Русский</a></div>
+                            <div class="t-menusub option" data-submenu-hook="link_sub7_276671857" data-submenu-margin="15px"
                                  data-add-submenu-arrow="">
-                                <div class="t-menusub__menu">
-                                    <div class="t-menusub__content notranslate">
+                                <div class="t-menusub__menu ">
+                                    <div class="t-menusub__content ">
                                         <ul class="t-menusub__list">
                                             <li class="t-menusub__list-item t-name t-name_xs">
                                                 <a href="#"
@@ -212,6 +212,7 @@
                                     </div>
                                 </div>
                             </div>
+            </div>
                         </li>
                         <script type="text/javascript">
                             jQuery('.switcher .selected').click(function () {
@@ -230,7 +231,7 @@
                             });
                             jQuery('body').not('.switcher').click(function (e) {
                                 if (jQuery('.switcher .option').is(':visible') && e.target != jQuery('.switcher .option').get(0)) {
-                                    jQuery('.switcher .option').stop(true, true).delay(100).slideUp(500);
+                                    jQuery('.switcher .option').stop(true, true).delay(2000).slideUp(500);
                                     jQuery('.switcher .selected a').toggleClass('open')
                                 }
                             });
@@ -261,6 +262,22 @@
                         }</style>
                         <div id="google_translate_element2"></div>
                         <script type="text/javascript">
+                            function deleteAllCookies() {
+                                document.cookie.split(';').forEach(function(c) {
+                                    document.cookie = c.trim().split('=')[0] + '=;' + 'expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+                                });
+                            }
+                            function GTranslateGetCurrentLang() {
+                                var keyValue = document['cookie'].match('(^|;) ?googtrans=([^;]*)(;|$)');
+                                var res = keyValue ? keyValue[2].split('/')[2] : null;
+                                return res;
+                            }
+                            if (GTranslateGetCurrentLang() == null) {
+                                var windowLang = window.navigator.userLanguage || window.navigator.language;
+                                if (windowLang != null && windowLang != 'ru' && !document['cookie'].match('(^|;) ?russian=true(;|$)')) {
+                                    document.cookie = "googtrans=/ru/" + windowLang.split('-')[0];
+                                }
+                            }
                             function googleTranslateElementInit2() {
                                 new google.translate.TranslateElement({
                                     pageLanguage: 'ru',
@@ -270,11 +287,6 @@
                         </script>
                         <script type="text/javascript" src="js/f.js"></script>
                         <script type="text/javascript">
-                            function GTranslateGetCurrentLang() {
-                                var keyValue = document['cookie'].match('(^|;) ?googtrans=([^;]*)(;|$)');
-                                return keyValue ? keyValue[2].split('/')[2] : null;
-                            }
-
                             function GTranslateFireEvent(element, event) {
                                 try {
                                     if (document.createEventObject) {
@@ -294,6 +306,10 @@
                                 if (lang_pair == '') return;
                                 var lang = lang_pair.split('|')[1];
                                 if (GTranslateGetCurrentLang() == null && lang == lang_pair.split('|')[0]) return;
+                                deleteAllCookies();
+                                if (lang == 'ru') {
+                                    document.cookie = "russian=true";
+                                }
                                 if (typeof ga != 'undefined') {
                                     ga('send', 'event', 'GTranslate', lang, location.hostname + location.pathname + location.search);
                                 } else {
